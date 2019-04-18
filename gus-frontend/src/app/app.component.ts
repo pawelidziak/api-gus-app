@@ -9,6 +9,6 @@ export class AppComponent {
   appName = 'API GUS wyszukiwarka regon';
 
   openGitHub() {
-
+    window.open('https://github.com/pawelidziak/api-gus-app', '_blank');
   }
 }
