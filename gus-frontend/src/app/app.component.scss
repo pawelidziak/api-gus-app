@@ -1,0 +1,28 @@
+.app-toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.toolbar-nav {
+  ul {
+    display: flex;
+    list-style-type: none;
+  }
+
+  li {
+    margin-left: 12px;
+
+    mat-icon {
+      margin-right: 12px;
+    }
+
+  }
+}
+
+.main-container {
+  margin-top: 48px;
+}
+
+.is-active {
+  background-color: rgba(255, 255, 255, .1);
+}
