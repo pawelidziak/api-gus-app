@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.apigus</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>api-gus</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>demo</name>
+	<name>REST API GUS</name>
 	<description>API GUS - backend. Paweł Idzaik</description>
 
 	<properties>

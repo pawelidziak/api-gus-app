@@ -10,11 +10,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CompanyController {
 
+    private final CompanyService service;
+
     @Autowired
-    CompanyService service;
+    public CompanyController(CompanyService service) {
+        this.service = service;
+    }
 
     @RequestMapping(value = "/getByNip", produces = "application/json")
     public String getCompanyDetail(@RequestParam(value="nip", defaultValue="7251801126") String nip) {
-        return service.getComapnyDetaiulByNip(nip);
+        return service.getCompanyDetailByNip(nip);
     }
 }

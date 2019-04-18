@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class CompanyService {
 
-    public String getComapnyDetaiulByNip(String nip) {
+    public String getCompanyDetailByNip(String nip) {
         // TODO
         return "TODO";
     }
