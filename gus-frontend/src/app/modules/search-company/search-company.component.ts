@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-search-company',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-company.component.scss']
 })
 export class SearchCompanyComponent implements OnInit {
+  searchCompanyForm: FormGroup;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private formBuilder: FormBuilder) {
   }
 
+  ngOnInit() {
+    this.searchCompanyForm = this.formBuilder.group({
+      nip: new FormControl('', Validators.required),
+    });
+  }
+
+  searchCompany() {
+    console.log(this.searchCompanyForm.value);
+  }
 }
