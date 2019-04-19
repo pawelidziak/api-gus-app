@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {SearchCompanyComponent} from './search-company.component';
 import {RouterModule, Routes} from '@angular/router';
 import {CommonModule} from '@angular/common';
-import {MatFormFieldModule, MatInputModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule} from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 const routes: Routes = [
@@ -21,7 +21,10 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatIconModule,
+    MatCardModule,
+    MatButtonModule
   ],
   providers: []
 })

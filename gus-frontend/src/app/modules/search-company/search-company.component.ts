@@ -14,11 +14,18 @@ export class SearchCompanyComponent implements OnInit {
 
   ngOnInit() {
     this.searchCompanyForm = this.formBuilder.group({
-      nip: new FormControl('', Validators.required),
+      nip: new FormControl('', [
+        Validators.required,
+        Validators.minLength(10),
+        Validators.maxLength(10),
+        Validators.pattern('[0-9]*')
+      ])
     });
   }
 
   searchCompany() {
-    console.log(this.searchCompanyForm.value);
+    if (this.searchCompanyForm.valid) {
+      console.log(this.searchCompanyForm.value);
+    }
   }
 }
