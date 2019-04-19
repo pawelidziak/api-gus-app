@@ -8,7 +8,7 @@ import {Component} from '@angular/core';
 export class AppComponent {
   appName = 'API GUS wyszukiwarka regon';
 
-  openGitHub() {
+  openGitHub(): void {
     window.open('https://github.com/pawelidziak/api-gus-app', '_blank');
   }
 }

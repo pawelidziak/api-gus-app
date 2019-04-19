@@ -20,20 +20,25 @@
                placeholder="NIP"
                type="text"
                formControlName="nip">
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-error *ngIf="searchCompanyForm.controls['nip'].hasError('required')">* Podaj numer NIP</mat-error>
-        <mat-error *ngIf="!searchCompanyForm.controls['nip'].hasError('pattern') && (searchCompanyForm.controls['nip'].hasError('minlength') || searchCompanyForm.controls['nip'].hasError('maxlength'))">
-          * Numer NIP składa się z 10 cyfr (podane: {{searchCompanyForm.controls['nip'].errors?.maxlength?.actualLength || searchCompanyForm.controls['nip'].errors?.minlength?.actualLength}})
+        <button mat-button *ngIf="nipControl.value" matSuffix mat-icon-button aria-label="Clear" (click)="nipControl.setValue('')">
+          <mat-icon>close</mat-icon>
+        </button>
+
+        <mat-error *ngIf="nipControl.hasError('required')">* Podaj numer NIP</mat-error>
+        <mat-error
+          *ngIf="!nipControl.hasError('pattern') && (nipControl.hasError('minlength') || nipControl.hasError('maxlength'))">
+          * Numer NIP składa się z 10 cyfr (podane: {{nipControl.errors?.maxlength?.actualLength || nipControl.errors?.minlength?.actualLength}})
         </mat-error>
-        <mat-error *ngIf="searchCompanyForm.controls['nip'].hasError('pattern')">* Wprowadź wartości numeryczne</mat-error>
+        <mat-error *ngIf="nipControl.hasError('pattern')">* Wprowadź wartości numeryczne</mat-error>
       </mat-form-field>
 
-        <button type="submit"
-                class="width-100"
-                mat-flat-button
-                color="primary">
-          Szukaj
-        </button>
+      <button type="submit"
+              class="width-100 submit-button"
+              [disabled]="!nipControl.value"
+              mat-flat-button
+              color="primary">
+        Szukaj
+      </button>
     </form>
 
   </mat-card-content>

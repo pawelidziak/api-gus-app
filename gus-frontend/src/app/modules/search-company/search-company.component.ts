@@ -8,22 +8,23 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class SearchCompanyComponent implements OnInit {
   searchCompanyForm: FormGroup;
+  nipControl: FormControl = new FormControl('', [
+    Validators.required,
+    Validators.minLength(10),
+    Validators.maxLength(10),
+    Validators.pattern('[0-9]*')
+  ]);
 
   constructor(private formBuilder: FormBuilder) {
   }
 
   ngOnInit() {
     this.searchCompanyForm = this.formBuilder.group({
-      nip: new FormControl('', [
-        Validators.required,
-        Validators.minLength(10),
-        Validators.maxLength(10),
-        Validators.pattern('[0-9]*')
-      ])
+      nip: this.nipControl
     });
   }
 
-  searchCompany() {
+  searchCompany(): void {
     if (this.searchCompanyForm.valid) {
       console.log(this.searchCompanyForm.value);
     }

@@ -6,12 +6,16 @@ $gt-sm_size: 'screen and (min-width: 768px)'; // Medium devices (tablets, 768px 
   align-items: center;
 }
 
-.search-form, .submit-button {
+.search-form {
   width: 100%;
   margin: 0 auto;
   @media #{$gt-sm_size} {
     width: 50%;
   }
+}
+
+.submit-button {
+  margin-top: 12px;
 }
 
 .width-100 {
