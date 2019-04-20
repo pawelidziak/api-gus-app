@@ -18,7 +18,7 @@ public class CompanyController {
     }
 
     @RequestMapping(value = "/getByNip", produces = "application/json")
-    public String getCompanyDetail(@RequestParam(value="nip", defaultValue="7251801126") String nip) {
-        return service.getCompanyDetailByNip(nip);
+    public String getCompanyDetail(@RequestParam(value="nip", defaultValue="8971696669") String nip) {
+        return service.getCompanyByNip(nip).toString();
     }
 }
