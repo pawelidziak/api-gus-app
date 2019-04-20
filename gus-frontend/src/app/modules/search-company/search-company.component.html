@@ -25,8 +25,7 @@
         </button>
 
         <mat-error *ngIf="nipControl.hasError('required')">* Podaj numer NIP</mat-error>
-        <mat-error
-          *ngIf="!nipControl.hasError('pattern') && (nipControl.hasError('minlength') || nipControl.hasError('maxlength'))">
+        <mat-error *ngIf="!nipControl.hasError('pattern') && (nipControl.hasError('minlength') || nipControl.hasError('maxlength'))">
           * Numer NIP składa się z 10 cyfr (podane: {{nipControl.errors?.maxlength?.actualLength || nipControl.errors?.minlength?.actualLength}})
         </mat-error>
         <mat-error *ngIf="nipControl.hasError('pattern')">* Wprowadź wartości numeryczne</mat-error>

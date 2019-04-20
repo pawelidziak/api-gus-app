@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {CompanyService} from '../../core/services/company.service';
+import {Company} from '../../core/models/company';
 
 @Component({
   selector: 'app-search-company',
@@ -15,7 +17,7 @@ export class SearchCompanyComponent implements OnInit {
     Validators.pattern('[0-9]*')
   ]);
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private service: CompanyService) {
   }
 
   ngOnInit() {
@@ -26,7 +28,12 @@ export class SearchCompanyComponent implements OnInit {
 
   searchCompany(): void {
     if (this.searchCompanyForm.valid) {
-      console.log(this.searchCompanyForm.value);
+      this.service.getCompanyByNip(this.nipControl.value).subscribe(
+        (res: Company) => {
+          console.log(res.Gmina);
+        },
+        err => console.error(err)
+      );
     }
   }
 }

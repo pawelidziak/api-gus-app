@@ -5,6 +5,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatIconModule, MatToolbarModule} from '@angular/material';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import {MatButtonModule, MatIconModule, MatToolbarModule} from '@angular/materia
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule
