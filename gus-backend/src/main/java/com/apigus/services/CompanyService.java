@@ -18,6 +18,14 @@ public class CompanyService {
 
     public JSONObject getCompanyByNip(String nip) {
         String soapData = repository.getCompanyByNip(nip);
-        return XML.toJSONObject(soapData);
+        JSONObject jsonData = XML.toJSONObject(soapData);
+        return prepareJSONObject(jsonData);
+    }
+
+    private JSONObject prepareJSONObject(JSONObject jsonData) {
+        if (jsonData.has("root") && jsonData.getJSONObject("root").has("dane")) {
+            jsonData = jsonData.getJSONObject("root").getJSONObject("dane");
+        }
+        return jsonData;
     }
 }
