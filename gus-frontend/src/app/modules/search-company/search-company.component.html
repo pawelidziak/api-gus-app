@@ -14,31 +14,67 @@
           class="search-form"
           (submit)="searchCompany()">
 
-      <mat-form-field appearance="outline" class="width-100">
+      <mat-form-field appearance="outline" class="nip-form">
         <mat-label>Wpisz NIP firmy (10 cyfr)</mat-label>
         <input matInput
                placeholder="NIP"
                type="text"
                formControlName="nip">
-        <button mat-button *ngIf="nipControl.value" matSuffix mat-icon-button aria-label="Clear" (click)="nipControl.setValue('')">
+        <button mat-button *ngIf="nipControl.value" matSuffix mat-icon-button aria-label="Clear"
+                (click)="nipControl.setValue('')">
           <mat-icon>close</mat-icon>
         </button>
 
         <mat-error *ngIf="nipControl.hasError('required')">* Podaj numer NIP</mat-error>
-        <mat-error *ngIf="!nipControl.hasError('pattern') && (nipControl.hasError('minlength') || nipControl.hasError('maxlength'))">
-          * Numer NIP składa się z 10 cyfr (podane: {{nipControl.errors?.maxlength?.actualLength || nipControl.errors?.minlength?.actualLength}})
+        <mat-error
+          *ngIf="!nipControl.hasError('pattern') && (nipControl.hasError('minlength') || nipControl.hasError('maxlength'))">
+          * Numer NIP składa się z 10 cyfr
+          (podane: {{nipControl.errors?.maxlength?.actualLength || nipControl.errors?.minlength?.actualLength}})
         </mat-error>
         <mat-error *ngIf="nipControl.hasError('pattern')">* Wprowadź wartości numeryczne</mat-error>
       </mat-form-field>
 
       <button type="submit"
-              class="width-100 submit-button"
+              class="submit-button"
               [disabled]="!nipControl.value"
               mat-flat-button
               color="primary">
         Szukaj
       </button>
     </form>
+    <div class="table-container">
 
+      <table *ngIf="companyData">
+        <thead>
+        <tr>
+          <th>Nazwa</th>
+          <th>Regon</th>
+          <th>Wojewodztwo</th>
+          <th>Kod Pocztowy</th>
+          <th>Miejscowosc</th>
+          <th>Gmina</th>
+          <th>Powiat</th>
+          <th>Ulica</th>
+          <th>SilosID</th>
+          <th>Typ</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>{{companyData.Nazwa}}</td>
+          <td>{{companyData.Regon}}</td>
+          <td>{{companyData.Wojewodztwo}}</td>
+          <td>{{companyData.KodPocztowy}}</td>
+          <td>{{companyData.Miejscowosc}}</td>
+          <td>{{companyData.Gmina}}</td>
+          <td>{{companyData.Powiat}}</td>
+          <td>{{companyData.Ulica}}</td>
+          <td>{{companyData.SilosID}}</td>
+          <td>{{companyData.Typ}}</td>
+        </tr>
+        </tbody>
+      </table>
+
+    </div>
   </mat-card-content>
 </mat-card>

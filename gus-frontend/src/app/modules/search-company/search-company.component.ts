@@ -10,12 +10,13 @@ import {Company} from '../../core/models/company';
 })
 export class SearchCompanyComponent implements OnInit {
   searchCompanyForm: FormGroup;
-  nipControl: FormControl = new FormControl('', [
+  nipControl: FormControl = new FormControl('8971696669', [
     Validators.required,
     Validators.minLength(10),
     Validators.maxLength(10),
     Validators.pattern('[0-9]*')
   ]);
+  companyData: Company;
 
   constructor(private formBuilder: FormBuilder, private service: CompanyService) {
   }
@@ -29,9 +30,7 @@ export class SearchCompanyComponent implements OnInit {
   searchCompany(): void {
     if (this.searchCompanyForm.valid) {
       this.service.getCompanyByNip(this.nipControl.value).subscribe(
-        (res: Company) => {
-          console.log(res.Gmina);
-        },
+        (res: Company) => this.companyData = res,
         err => console.error(err)
       );
     }
