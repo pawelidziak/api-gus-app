@@ -1,3 +1,19 @@
-<p>
-  about works!
-</p>
+<mat-card>
+  <mat-card-header>
+    <img mat-card-avatar src="assets/photo.png" />
+    <mat-card-title>Paweł Idziak</mat-card-title>
+    <mat-card-subtitle>pa.idziak@gmail.com</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+
+    <div class="card-content">
+      <p>Aplikacja powstała w celu prezentacji wyników odebranych z <a href="https://api.stat.gov.pl/">API GUS</a>.</p>
+      <p>Frontend aplikacji jest zaimplementowany przy użyciu framework'a <strong>Angular 7</strong>. Użyty język programowania to <strong>TypeScript</strong>.</p>
+      <p>Backend aplikacji jest swego rodzaju adapterem pomiędzy warstwą Frontend, a zewnętrznym API. Użyte technologie to <strong>Java</strong> oraz framework <strong>Spring</strong>. Backend opiera się o architekturę REST, natomiast dane z zewnętrzego API GUS pobierane są przy użyciu wygenerowanego klienta. Po otrzymaniu wyniku, dane są przerabiane i zwracane w postaci pliku JSON.</p>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <a mat-button color="primary" (click)="openLink('https://www.github.com/pawelidziak')">GitHub</a>
+    <a mat-button color="primary" (click)="openLink('https://www.linkedin.com/in/pawel-idziak')">LinkedIn</a>
+  </mat-card-actions>
+</mat-card>
