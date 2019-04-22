@@ -42,9 +42,19 @@
         Szukaj
       </button>
     </form>
-    <div class="table-container">
 
-      <table *ngIf="companyData">
+    <div class="my-divider" *ngIf="!loading && (errorMsg || companyData)"></div>
+
+    <div class="loading-container" *ngIf="loading">
+      <mat-spinner></mat-spinner>
+    </div>
+
+    <div class="err-container" *ngIf="!loading && errorMsg">
+      <p>{{errorMsg}}</p>
+    </div>
+
+    <div class="table-container" *ngIf="!loading && companyData">
+      <table>
         <thead>
         <tr>
           <th>Nazwa</th>

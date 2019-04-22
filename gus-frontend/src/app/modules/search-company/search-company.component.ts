@@ -17,6 +17,8 @@ export class SearchCompanyComponent implements OnInit {
     Validators.pattern('[0-9]*')
   ]);
   companyData: Company;
+  loading: boolean;
+  errorMsg: string;
 
   constructor(private formBuilder: FormBuilder, private service: CompanyService) {
   }
@@ -29,9 +31,17 @@ export class SearchCompanyComponent implements OnInit {
 
   searchCompany(): void {
     if (this.searchCompanyForm.valid) {
+      this.loading = true;
+      this.companyData = null;
       this.service.getCompanyByNip(this.nipControl.value).subscribe(
-        (res: Company) => this.companyData = res,
-        err => console.error(err)
+        (res: Company) => {
+          this.companyData = res;
+          this.loading = false;
+        },
+        (err: ErrorEvent) => {
+          this.errorMsg = err.error.message;
+          this.loading = false;
+        }
       );
     }
   }
