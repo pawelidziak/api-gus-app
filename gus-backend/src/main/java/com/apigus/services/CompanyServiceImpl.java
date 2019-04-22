@@ -7,17 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CompanyService {
+public class CompanyServiceImpl implements ICompanyService {
 
     private final CompanyRepository repository;
 
     @Autowired
-    public CompanyService(CompanyRepository repository) {
+    public CompanyServiceImpl(CompanyRepository repository) {
         this.repository = repository;
     }
 
-    public JSONObject getCompanyByNip(String nip) {
-        String soapData = repository.getCompanyByNip(nip);
+    @Override
+    public JSONObject getByNip(String nip) {
+        String soapData = repository.getByNip(nip);
         JSONObject jsonData = XML.toJSONObject(soapData);
         return prepareJSONObject(jsonData);
     }

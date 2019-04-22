@@ -10,7 +10,7 @@ import cis.bir.publ._2014._07.datacontract.ParametryWyszukiwania;
 import javax.xml.bind.JAXBElement;
 
 @Repository
-public class CompanyRepository {
+public class CompanyRepository implements ICompanyRepository {
 
     private final SoapClient client;
 
@@ -19,7 +19,8 @@ public class CompanyRepository {
         this.client = client;
     }
 
-    public String getCompanyByNip(String nip) {
+    @Override
+    public String getByNip(String nip) {
         ParametryWyszukiwania params = this.createNipSearchParameter(nip);
         return client.getClient().daneSzukaj(params);
     }
