@@ -19,17 +19,17 @@ Aby uruchomić projekt lokalnie, potrzebujesz zainstalować takie technologie ja
 - Node.js (używana wersja: 10.15.1)
 
 ### Backend
-1. Go to `gus-backend` folder.
-2. Run the spring project (https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-running-your-application.html).
+1. Przejdź do folderu `gus-backend`.
+2. Uruchom projekt Spring Boot (https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-running-your-application.html).
 
-The app should be running on `localhost:8080`.
+Aplikacja powinna być dostępna pod adresem: `localhost:8080`.
 
 ### Frontend
-1. Go to `gus-frontend` folder.
-2. Open command line and run: `npm install`.
-3. Run command `ng serve`
+1. Przejdź do folderu `gus-frontend`.
+2. Otwóz terminal i zbuduj projekt komendą: `npm install`.
+3. Uruchom projekt komendą: `ng serve`
 
-Now the application should be available on the `localhost:4200` (run it in the web browser).
+Aplikacja powinna być dostępna pod adresem: `localhost:4200` (uruchom w przeglądarce internetowej).
 
 
 ## Demo
